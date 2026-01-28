@@ -57,3 +57,9 @@ class Program
         }
     }
 }
+// Exceeding core requirements:
+// In addition to the required features, this program displays the total
+// number of journal entries currently stored in the journal. This helps
+// the user track their journaling progress and provides extra feedback
+// beyond the core requirements.
+
