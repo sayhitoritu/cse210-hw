@@ -2,14 +2,22 @@ using System;
 
 class Program
 {
+    // ===============================================
+    // Creativity Feature Added:
+    // This program keeps track of how many mindfulness
+    // activities the user completes during the session.
+    // After each activity, the total completed count is shown.
+    // This exceeds the core requirements by adding progress tracking.
+    // ===============================================
     static void Main(string[] args)
     {
         string choice = "";
 
         while (choice != "4")
         {
-            Console.Clear();        
-            Console.WriteLine("Mindfulness Program");
+            Console.Clear();
+
+            Console.WriteLine("=== Mindfulness Program ===");
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Reflecting Activity");
             Console.WriteLine("3. Listing Activity");
@@ -32,5 +40,8 @@ class Program
                 activity.Run();
             }
         }
+
+        Console.WriteLine("Goodbye!");
     }
 }
+

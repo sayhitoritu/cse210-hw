@@ -5,24 +5,26 @@ public class ReflectingActivity : Activity
 {
     private List<string> _prompts = new List<string>
     {
-        "Think of a time you helped someone.",
-        "Think of a time you overcame a challenge.",
-        "Think of a time you felt peace."
+        "Think of a time you stood up for someone else.",
+        "Think of a time you did something really difficult.",
+        "Think of a time you helped someone in need.",
+        "Think of a time you showed courage."
     };
 
     private List<string> _questions = new List<string>
     {
-        "Why was this meaningful?",
-        "What did you learn?",
-        "How did you feel?",
-        "What would you do again?"
+        "Why was this meaningful to you?",
+        "How did you feel afterward?",
+        "What did you learn from this?",
+        "What strengths did you show?",
+        "How can you use this experience again?"
     };
 
     private Random _random = new Random();
 
     public ReflectingActivity()
         : base("Reflecting",
-               "This activity helps you reflect on meaningful moments.")
+        "This activity helps you reflect on times when you showed strength and resilience.")
     {
     }
 
@@ -30,20 +32,20 @@ public class ReflectingActivity : Activity
     {
         DisplayStartingMessage();
 
-        Console.WriteLine("\nPrompt:");
+        Console.WriteLine("\nConsider the following prompt:\n");
         Console.WriteLine(GetRandomPrompt());
+
         ShowSpinner(3);
 
         DateTime end = DateTime.Now.AddSeconds(_duration);
 
         while (DateTime.Now < end)
         {
-            Console.WriteLine(GetRandomQuestion());
+            Console.WriteLine("\n" + GetRandomQuestion());
             ShowSpinner(4);
         }
 
         DisplayEndingMessage();
-        Console.ReadKey();
     }
 
     private string GetRandomPrompt()

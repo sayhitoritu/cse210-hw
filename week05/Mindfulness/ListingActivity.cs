@@ -5,16 +5,17 @@ public class ListingActivity : Activity
 {
     private List<string> _prompts = new List<string>
     {
-        "List people you appreciate:",
-        "List things you are grateful for:",
-        "List personal strengths:"
+        "Who are people that you appreciate?",
+        "What are personal strengths of yours?",
+        "Who have you helped recently?",
+        "What blessings are you grateful for?"
     };
 
     private Random _random = new Random();
 
     public ListingActivity()
         : base("Listing",
-               "This activity helps you list positive things in your life.")
+        "This activity helps you list many positive things in your life.")
     {
     }
 
@@ -32,12 +33,14 @@ public class ListingActivity : Activity
         while (DateTime.Now < end)
         {
             Console.Write("> ");
-            items.Add(Console.ReadLine());
+            string input = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(input))
+                items.Add(input);
         }
 
-        Console.WriteLine($"You listed {items.Count} items!");
+        Console.WriteLine($"\nYou listed {items.Count} items!");
         DisplayEndingMessage();
-        Console.ReadKey();
     }
 
     private string GetRandomPrompt()

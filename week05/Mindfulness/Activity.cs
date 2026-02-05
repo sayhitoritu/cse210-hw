@@ -16,12 +16,19 @@ public class Activity
     public void DisplayStartingMessage()
     {
         Console.Clear();
-        Console.WriteLine($"Welcome to the {_name} Activity");
-        Console.WriteLine(_description);
-        Console.Write("Enter duration in seconds: ");
-        _duration = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Get ready...");
+        Console.WriteLine($"--- {_name} Activity ---");
+        Console.WriteLine(_description);
+        Console.WriteLine();
+
+        Console.Write("Enter duration in seconds: ");
+
+        while (!int.TryParse(Console.ReadLine(), out _duration) || _duration <= 0)
+        {
+            Console.Write("Please enter a valid number: ");
+        }
+
+        Console.WriteLine("\nGet ready...");
         ShowSpinner(3);
     }
 
@@ -29,8 +36,12 @@ public class Activity
     {
         Console.WriteLine("\nWell done!");
         ShowSpinner(3);
+
         Console.WriteLine($"You completed {_duration} seconds of the {_name} Activity.");
         ShowSpinner(3);
+
+        Console.WriteLine("\nPress Enter to continue...");
+        Console.ReadLine();
     }
 
     public void ShowSpinner(int seconds)
@@ -38,8 +49,8 @@ public class Activity
         string[] spinner = { "|", "/", "-", "\\" };
 
         DateTime end = DateTime.Now.AddSeconds(seconds);
-
         int i = 0;
+
         while (DateTime.Now < end)
         {
             Console.Write(spinner[i]);

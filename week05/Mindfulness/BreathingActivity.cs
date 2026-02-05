@@ -4,7 +4,7 @@ public class BreathingActivity : Activity
 {
     public BreathingActivity()
         : base("Breathing",
-               "This activity helps you relax by guiding breathing.")
+        "This activity will help you relax by guiding you through slow breathing. Clear your mind and focus on your breath.")
     {
     }
 
@@ -24,6 +24,5 @@ public class BreathingActivity : Activity
         }
 
         DisplayEndingMessage();
-        Console.ReadKey();
     }
 }
