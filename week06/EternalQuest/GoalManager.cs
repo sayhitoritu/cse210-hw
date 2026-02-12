@@ -10,5 +10,6 @@ public class GoalManager
     {
         // Menu loop will be implemented later
         Console.WriteLine("Eternal Quest program started.");
+        Console.WriteLine($"Current Score: {_score}");
     }
 }
