@@ -1,3 +1,5 @@
+using System;
+
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
@@ -8,13 +10,29 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        _isComplete = true;
+        if (!_isComplete)
+        {
+            _isComplete = true;
+            return GetPoints();
+        }
+        return 0;
     }
 
     public override bool IsComplete()
     {
         return _isComplete;
+    }
+
+    public override string GetDetailsString()
+    {
+        string checkbox = _isComplete ? "[X]" : "[ ]";
+        return $"{checkbox} {GetName()}";
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"SimpleGoal:{GetName()}|{_isComplete}";
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 public class EternalGoal : Goal
 {
     public EternalGoal(string name, string description, int points)
@@ -5,8 +7,23 @@ public class EternalGoal : Goal
     {
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        // No completion — can be recorded forever
+        return GetPoints();
+    }
+
+    public override bool IsComplete()
+    {
+        return false;
+    }
+
+    public override string GetDetailsString()
+    {
+        return $"[∞] {GetName()}";
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"EternalGoal:{GetName()}";
     }
 }
